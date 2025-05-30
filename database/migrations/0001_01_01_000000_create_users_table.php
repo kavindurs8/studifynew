@@ -16,7 +16,13 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable(); // Make password nullable for Google users
+            $table->string('google_id')->nullable(); // Add Google ID
+            $table->string('avatar')->nullable(); // Add avatar for Google profile picture
+            $table->string('profile_picture')->nullable(); // Add profile picture upload
+            $table->string('country')->nullable(); // Add country field
+            $table->string('city')->nullable(); // Add city field
+            $table->string('zip_code')->nullable(); // Add zip code field
             $table->rememberToken();
             $table->timestamps();
         });

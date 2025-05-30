@@ -40,12 +40,16 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            // Note: email_verified_at is intentionally left null for email verification
         ]);
 
+        // Fire the Registered event to send verification email
         event(new Registered($user));
 
+        // Log the user in
         Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+        // Redirect to email verification notice page
+        return redirect(route('verification.notice'))->with('message', 'Registration successful! Please check your email to verify your account.');
     }
 }

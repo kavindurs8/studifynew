@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Third Party Services
@@ -35,4 +34,25 @@ return [
         ],
     ],
 
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect' => env('GOOGLE_REDIRECT_URI'),
+    ],
+
+    'youtube' => [
+        'client_id' => env('YOUTUBE_CLIENT_ID'),
+        'client_secret' => env('YOUTUBE_CLIENT_SECRET'),
+        'redirect_uri' => env('YOUTUBE_REDIRECT_URI', env('APP_URL') . '/teacher/youtube/callback'),
+        'api_key' => env('YOUTUBE_API_KEY'),
+        'channel_access_token' => env('YOUTUBE_CHANNEL_ACCESS_TOKEN'),
+        'channel_refresh_token' => env('YOUTUBE_CHANNEL_REFRESH_TOKEN'),
+    ],
+
+    'zoom' => [
+        'base_url' => env('ZOOM_BASE_URL', 'https://api.zoom.us/v2'),
+        'account_id' => env('ZOOM_ACCOUNT_ID'),
+        'client_id' => env('ZOOM_CLIENT_ID'),
+        'client_secret' => env('ZOOM_CLIENT_SECRET'),
+    ],
 ];

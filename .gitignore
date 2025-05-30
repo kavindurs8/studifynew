@@ -1,5 +1,4 @@
 /.phpunit.cache
-# # /node_modules  <- Comment out or remove this line
 /public/hot
 /public/storage
 /storage/*.key
@@ -30,4 +29,7 @@ yarn-error.log
 # Allow build assets for production
 !/public/build/
 !/public/build/manifest.json
+
+# Comment out node_modules to include it in repository
+# /node_modules
 node_modules
